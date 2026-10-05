@@ -7,7 +7,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-const { NOTION_TOKEN, NOTION_DATABASE_ID } = process.env;
+const NOTION_TOKEN = process.env.NOTION_TOKEN?.trim();
+const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID?.trim();
+
 if (!NOTION_TOKEN || !NOTION_DATABASE_ID) {
   console.error('Set NOTION_TOKEN and NOTION_DATABASE_ID (see .env.example).');
   process.exit(1);
