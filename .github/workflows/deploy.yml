@@ -3,7 +3,7 @@
 #   indiaeye-poc-notion : rebuilt on every push AND every 30 minutes (picks up Notion edits)
 name: Deploy
 on:
-  push: { branches: [main] }
+  push: { branches: [master] }
   schedule: [{ cron: '*/30 * * * *' }]
   workflow_dispatch:
 
