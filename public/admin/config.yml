@@ -2,7 +2,7 @@
 backend:
   name: github
   repo: EMPN2350GirirajShankar/IEI_POC
-  branch: main
+  branch: master
   base_url: https://indiaeye-poc-decap.giriraj-shankar.workers.dev
 
 
