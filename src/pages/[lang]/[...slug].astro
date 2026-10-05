@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Iris from '../../components/Iris.astro';
+
+export async function getStaticPaths() {
+  const all = await getCollection('pages');
+  return all.map((entry) => {
+    const [lang, ...rest] = entry.id.split('/');
+    const slug = rest.join('/');
+    return { params: { lang, slug: slug === 'home' ? undefined : slug }, props: { entry, lang, slug } };
+  });
+}
+
+const { entry, lang, slug } = Astro.props;
+const all = await getCollection('pages');
+const other = lang === 'en' ? 'hi' : 'en';
+const hasTwin = all.some((e) => e.id === `${other}/${slug}`);
+const nav = all
+  .filter((e) => e.id.startsWith(`${lang}/`) && e.data.nav)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => {
+    const s = e.id.split('/').slice(1).join('/');
+    return { slug: s, title: e.data.title, href: s === 'home' ? `/${lang}/` : `/${lang}/${s}/` };
+  });
+const { Content } = await render(entry);
+const isHome = slug === 'home';
+---
+<Base lang={lang} slug={slug} title={entry.data.title} nav={nav} hasTwin={hasTwin}>
+  {isHome ? (
+    <section class="hero">
+      <div>
+        <h1>{entry.data.title}</h1>
+        {entry.data.summary && <p class="lede">{entry.data.summary}</p>}
+      </div>
+      <Iris />
+    </section>
+  ) : (
+    <header class="page-head"><h1>{entry.data.title}</h1>{entry.data.summary && <p class="lede">{entry.data.summary}</p>}</header>
+  )}
+  <article class="prose"><Content /></article>
+</Base>

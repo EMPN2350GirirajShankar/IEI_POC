@@ -1,0 +1,10 @@
+# Triggers a Cloudflare Pages rebuild so Notion edits go live without anyone touching Git.
+name: Rebuild from Notion
+on:
+  schedule: [{ cron: '*/30 * * * *' }]
+  workflow_dispatch:
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK_URL }}"

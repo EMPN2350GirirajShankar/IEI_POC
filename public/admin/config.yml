@@ -1,0 +1,33 @@
+# Production: GitHub backend needs a small OAuth proxy (see README). Local demo: run `npx decap-server`.
+backend:
+  name: github
+  repo: YOUR_ORG/indiaeye-poc
+  branch: main
+  base_url: https://YOUR-OAUTH-PROXY.workers.dev
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+locale: en
+
+i18n:
+  structure: multiple_folders
+  locales: [en, hi]
+  default_locale: en
+
+collections:
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: src/content/pages
+    create: true
+    extension: md
+    format: frontmatter
+    i18n: true
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Short summary, name: summary, widget: text, required: false, i18n: true }
+      - { label: Menu position, name: order, widget: number, value_type: int, default: 99, i18n: duplicate, hint: "Smaller numbers appear first in the menu." }
+      - { label: Show in menu, name: nav, widget: boolean, default: true, i18n: duplicate }
+      - { label: Body, name: body, widget: markdown, i18n: true }

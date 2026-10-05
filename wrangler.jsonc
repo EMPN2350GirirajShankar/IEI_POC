@@ -1,0 +1,10 @@
+   {
+     "name": "indiaeye-poc",
+     "main": "worker/index.js",
+     "compatibility_date": "2026-01-01",
+     "assets": { "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page" },
+     "env": {
+       "decap": {},
+       "notion": {}
+     }
+   }

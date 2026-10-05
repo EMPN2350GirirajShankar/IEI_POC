@@ -1,0 +1,19 @@
+{
+  "name": "indiaeye-poc",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync:notion": "node scripts/sync-notion.mjs",
+    "dev:notion": "node scripts/sync-notion.mjs && cross-env CONTENT_SOURCE=notion astro dev",
+    "build:notion": "node scripts/sync-notion.mjs && cross-env CONTENT_SOURCE=notion astro build"
+  },
+  "dependencies": { "astro": "^5.0.0" },
+  "devDependencies": {
+    "@notionhq/client": "^2.2.15",
+    "cross-env": "^7.0.3",
+    "notion-to-md": "^3.1.1"
+  }
+}
