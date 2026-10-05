@@ -1,9 +1,10 @@
 # Production: GitHub backend needs a small OAuth proxy (see README). Local demo: run `npx decap-server`.
 backend:
   name: github
-  repo: YOUR_ORG/indiaeye-poc
+  repo: https://github.com/EMPN2350GirirajShankar/IEI_POC.git
   branch: main
-  base_url: https://YOUR-OAUTH-PROXY.workers.dev
+  base_url: https://indiaeye-poc-decap.giriraj-shankar.workers.dev
+
 
 local_backend: true
 
