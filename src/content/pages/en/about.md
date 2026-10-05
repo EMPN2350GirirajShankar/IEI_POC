@@ -1,6 +1,6 @@
 ---
 title: About us
-summary: A hospital focused on eyes, and on the people who depend on them. Test.
+summary: "A hospital focused on eyes, and on the people who depend on them. "
 order: 2
 nav: true
 ---
