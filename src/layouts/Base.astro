@@ -5,8 +5,8 @@ const { lang, slug, title, nav, hasTwin } = Astro.props;
 const other = lang === 'en' ? 'hi' : 'en';
 const switchHref = `/${other}/${hasTwin && slug !== 'home' ? slug + '/' : ''}`;
 const ui = lang === 'hi'
-  ? { switch: 'English', skip: 'मुख्य सामग्री पर जाएँ', foot: 'यह एक प्रोटोटाइप है; सामग्री उदाहरण मात्र है।' }
-  : { switch: 'हिंदी', skip: 'Skip to content', foot: 'Prototype site. Content is placeholder text.' };
+  ? { switch: 'English', skip: 'मुख्य सामग्री पर जाएँ', foot: '17/2, नॉलेज पार्क 3, एल जी चौक, ग्रेटर नोएडा, उत्तर प्रदेश 201306' }
+  : { switch: 'हिंदी', skip: 'Skip to content', foot: '17/2, Knowledge Park 3, LG Chowk, Greater Noida, UP 201306' };
 ---
 <!doctype html>
 <html lang={lang}>
@@ -22,13 +22,17 @@ const ui = lang === 'hi'
   <body>
     <a class="skip" href="#main">{ui.skip}</a>
     <header class="bar">
-      <a class="brand" href={`/${lang}/`}><Iris /><span>IndiaEye</span></a>
+      <a class="brand" href={`/${lang}/`}><Iris /><span>India Eye Institute | इंडिया आई हॉस्पिटल</span></a>
       <nav aria-label="Main">
-        {nav.map((n) => <a href={n.href} aria-current={n.slug === slug ? 'page' : undefined}>{n.title}</a>)}
+        {nav.map((n) => <a href={n.href} aria-current={n.slug === slug ? 'page' : undefined}>{n.slug === 'home' ? (lang === 'hi' ? 'होम' : 'Home') : n.title}</a>)}
       </nav>
       <a class="lang" href={switchHref} lang={other} hreflang={other}>{ui.switch}</a>
     </header>
+    <section class="appointment" aria-label={lang === 'hi' ? 'अपॉइंटमेंट' : 'Appointments'}>
+      <p>{lang === 'hi' ? 'अपॉइंटमेंट के लिए कॉल करें:' : 'To book an appointment, Call:'} <a href="tel:+918448964466">84489 64466</a> | <a href="tel:+918448974466">84489 74466</a> | {lang === 'hi' ? 'ईमेल:' : 'Email:'} <a href="mailto:care@indiaeye.in">care@indiaeye.in</a></p>
+      <a class="contact-button" href="tel:+919871481356">{lang === 'hi' ? 'संपर्क करें' : 'Contact Us'}</a>
+    </section>
     <main id="main"><slot /></main>
-    <footer><p>{ui.foot}</p></footer>
+    <footer><p>{ui.foot}</p><p><a href="mailto:care@indiaeye.in">care@indiaeye.in</a> · <a href="tel:+918448964466">84489 64466</a> · <a href="tel:+918448974466">84489 74466</a></p></footer>
   </body>
 </html>

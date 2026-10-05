@@ -1,26 +1,42 @@
-:root { --ink:#12263A; --iris:#0E6B75; --iris-deep:#0A4C54; --paper:#F6F9FA; --saffron:#E39B2D; --line:#D5E0E4; }
+:root { --ink:#111820; --blue:#2449A2; --blue-deep:#173B8B; --sky:#E6F4FC; --paper:#fff; --saffron:#F26A21; --line:#DCE3E8; --muted:#53616C; }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin:0; background:var(--paper); color:var(--ink); font:400 1.0625rem/1.7 'Mukta', system-ui, sans-serif; }
-h1, h2, h3 { font-family:'Tiro Devanagari Hindi', Georgia, serif; font-weight:400; line-height:1.25; color:var(--iris-deep); }
-a { color:var(--iris); text-underline-offset:3px; }
+body { margin:0; background:var(--paper); color:var(--ink); font:400 1.0625rem/1.65 'Mukta', Arial, sans-serif; }
+h1, h2, h3 { font-family:'Mukta', Arial, sans-serif; font-weight:700; line-height:1.2; color:var(--ink); }
+a { color:var(--blue); text-underline-offset:3px; }
 a:focus-visible { outline:3px solid var(--saffron); outline-offset:3px; }
 .skip { position:absolute; left:-999px; } .skip:focus { left:1rem; top:1rem; background:#fff; padding:.5rem 1rem; z-index:9; }
-.bar { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; padding:.9rem clamp(1rem,5vw,4rem); border-bottom:1px solid var(--line); background:#fff; }
-.brand { display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--iris-deep); font:400 1.5rem 'Tiro Devanagari Hindi', serif; }
-.brand .iris { width:2rem; height:2rem; color:var(--iris); }
-.bar nav { display:flex; gap:1.25rem; flex:1; flex-wrap:wrap; }
-.bar nav a { text-decoration:none; color:var(--ink); padding:.25rem 0; border-bottom:2px solid transparent; }
-.bar nav a[aria-current] { border-color:var(--saffron); }
-.lang { border:1.5px solid var(--iris); border-radius:999px; padding:.15rem 1rem; text-decoration:none; font-weight:600; }
-.lang:hover { background:var(--iris); color:#fff; }
-main { padding:0 clamp(1rem,5vw,4rem) 4rem; max-width:72rem; margin:0 auto; }
-.hero { display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; align-items:center; padding:4rem 0 2rem; }
-.hero h1 { font-size:clamp(2.2rem,5vw,3.6rem); margin:0 0 1rem; }
-.hero .iris { width:100%; max-width:22rem; justify-self:center; color:var(--iris); }
-.lede { font-size:1.25rem; max-width:34rem; margin:0; }
-.page-head { padding:3rem 0 0; } .page-head h1 { font-size:clamp(2rem,4vw,2.8rem); margin:0 0 .75rem; }
-.prose { max-width:42rem; } .prose h2 { margin-top:2.5rem; } .prose img { max-width:100%; height:auto; border-radius:6px; }
-.prose ul { padding-left:1.2rem; } .prose li { margin:.35rem 0; }
-footer { border-top:1px solid var(--line); padding:1.5rem clamp(1rem,5vw,4rem); font-size:.9rem; color:#4d6270; }
-@media (max-width:720px) { .hero { grid-template-columns:1fr; padding-top:2rem; } .hero .iris { max-width:12rem; justify-self:start; } }
+.bar { min-height:4.3rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; padding:.55rem clamp(1rem,4vw,3rem); border-bottom:1px solid #e9edf0; background:#fff; }
+.brand { display:flex; align-items:center; gap:.65rem; text-decoration:none; color:#30353a; font-size:1.05rem; line-height:1.2; }
+.brand .iris { display:none; }
+.brand::before { content:""; flex:0 0 3.2rem; width:3.2rem; height:2.5rem; background:url('/images/indiaeye/logo.png') center / contain no-repeat; }
+.bar nav { min-height:3.7rem; display:flex; align-items:stretch; justify-content:flex-end; gap:1rem; flex:1; flex-wrap:wrap; }
+.bar nav a { display:flex; align-items:center; text-decoration:none; color:#25292d; font-weight:700; padding:.35rem 0; border-bottom:4px solid transparent; }
+.bar nav a[aria-current] { border-color:var(--blue); }
+.lang { align-self:center; border:1px solid var(--blue); border-radius:2px; padding:.28rem .75rem; text-decoration:none; font-weight:700; }
+.lang:hover { background:var(--blue); color:#fff; }
+.appointment { min-height:8.5rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; padding:1.5rem clamp(1.5rem,7.5vw,6rem); color:#fff; background:var(--blue); }
+.appointment p { margin:0; font-size:1.2rem; font-weight:700; }
+.appointment a { color:#fff; }
+.contact-button { flex:0 0 auto; min-width:8.5rem; padding:.45rem 1rem; border-radius:4px; background:#fff; color:#171b20!important; text-align:center; text-decoration:none; font-size:1.1rem; }
+.contact-button:hover { background:#f1f5fa; }
+main { padding:0 0 4rem; width:100%; margin:0 auto; }
+.hero { min-height:27rem; display:grid; grid-template-columns:minmax(18rem, .9fr) 1.1fr; gap:2rem; align-items:center; padding:4rem clamp(1.5rem,7.5vw,6rem); background:var(--sky) url('/images/indiaeye/hero-background.jpg') center / cover no-repeat; }
+.hero > div { max-width:38rem; }
+.hero h1 { max-width:34rem; font-size:2.8rem; margin:0 0 1rem; }
+.hero .iris { display:none; }
+.lede { font-size:1.25rem; max-width:35rem; margin:0; }
+.page-head { max-width:72rem; margin:0 auto; padding:3rem 1.5rem 0; }
+.page-head h1 { font-size:2.6rem; margin:0 0 .75rem; color:var(--blue-deep); }
+.prose { max-width:72rem; margin:0 auto; padding:1rem 1.5rem 0; }
+.prose h2 { margin:3rem 0 1rem; color:var(--blue-deep); font-size:2rem; }
+.prose h3 { margin:2rem 0 .5rem; color:var(--blue); font-size:1.35rem; }
+.prose > p:first-of-type img { width:100%; max-height:27rem; object-fit:cover; }
+.prose img { max-width:100%; height:auto; border-radius:3px; }
+.prose ul { padding-left:1.3rem; } .prose li { margin:.35rem 0; }
+.prose li::marker { color:var(--saffron); }
+.prose blockquote { margin:1rem 0; padding:1rem 1.3rem; border-left:4px solid var(--saffron); background:#f3f8fb; }
+footer { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.5rem 2rem; border-top:1px solid var(--line); padding:1.5rem clamp(1.5rem,7.5vw,6rem); font-size:.95rem; color:var(--muted); }
+footer p { margin:.25rem 0; }
+@media (max-width:900px) { .brand { flex:1 1 100%; } .bar nav { justify-content:flex-start; min-height:2.8rem; gap:1.15rem; } }
+@media (max-width:640px) { .bar { gap:.4rem; } .brand { font-size:1rem; } .brand::before { flex-basis:2.7rem; width:2.7rem; height:2.1rem; } .bar nav { order:3; width:100%; overflow-x:auto; flex-wrap:nowrap; gap:1.15rem; } .bar nav a { white-space:nowrap; font-size:.95rem; } .appointment { min-height:0; align-items:flex-start; flex-direction:column; gap:1rem; padding:1.3rem 1.25rem; } .appointment p { font-size:1rem; } .contact-button { align-self:flex-start; } .hero { min-height:30rem; display:flex; align-items:flex-end; padding:2rem 1.25rem; background-position:61% center; } .hero > div { padding:1.1rem; background:rgba(230,244,252,.88); } .hero h1 { font-size:2.2rem; } .lede { font-size:1.1rem; } .page-head { padding:2rem 1.25rem 0; } .page-head h1 { font-size:2.1rem; } .prose { padding:0 1.25rem; } .prose h2 { font-size:1.7rem; margin-top:2.4rem; } footer { padding:1.2rem 1.25rem; } }
