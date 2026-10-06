@@ -1,6 +1,5 @@
 ---
-title: High-Quality, Advanced Eye Treatments Available Near You at Affordable
-  Prices,asdasd
+title: High-Quality, Advanced Eye Treatments Available Near You at Affordable Prices,
 summary: Come in anytime between 8 AM and 6 PM. Appointments are needed only for
   cataract surgeries.
 order: 1
